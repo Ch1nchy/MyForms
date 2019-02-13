@@ -1,4 +1,5 @@
 package team.projects.initial;
+import java.lang.reflect.Array;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 /**
@@ -11,13 +12,28 @@ public class TeamProjectsInitial {
 
     public static void main(String[] args) {
         
-        SerialPort serialPort = new SerialPort("/dev/ttyS0");
+        SerialPort serialPort = new SerialPort("/dev/ttyACM1");
         try {
-            System.out.println("Port opened: " + serialPort.openPort());
+            /*System.out.println("Port opened: " + serialPort.openPort());
             System.out.println("Params setted: " + serialPort.setParams(9600, 8, 1, 0));
             System.out.println("\"Hello World!!!\" successfully writen to port: " + serialPort.writeBytes("Hello World!!!".getBytes()));
             System.out.println("Port closed: " + serialPort.closePort());
-            active = true;
+            active = true;*/
+            byte[] readSerial;
+            
+            serialPort.openPort();
+            
+            while(true)
+            {
+                
+                readSerial = serialPort.readBytes();
+                
+                if (readSerial != null)
+                {
+                    System.out.println(readSerial.toString());
+                }
+                readSerial = null;
+            }
         }
         catch (SerialPortException ex){
             System.out.println(ex);
