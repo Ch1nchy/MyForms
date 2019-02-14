@@ -20,7 +20,7 @@ public class TeamProjectsInitial {
             System.out.println("Port closed: " + serialPort.closePort());
             active = true;*/
             byte[] readSerial;
-            int count = 0;
+            
             serialPort.openPort();
             
             while(true)
@@ -29,9 +29,9 @@ public class TeamProjectsInitial {
                 readSerial = serialPort.readBytes();
                 if (readSerial != null)
                 {
-                    count++;
+                    
                     //System.out.println(Arrays.toString(readSerial));
-                    System.out.println("Motion" + count);
+                    System.out.println("Motion");
                     
                 }
                
