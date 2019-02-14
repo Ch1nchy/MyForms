@@ -1,5 +1,5 @@
 package team.projects.initial;
-import java.lang.reflect.Array;
+import java.util.*;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 /**
@@ -20,19 +20,21 @@ public class TeamProjectsInitial {
             System.out.println("Port closed: " + serialPort.closePort());
             active = true;*/
             byte[] readSerial;
-            
+            int count = 0;
             serialPort.openPort();
             
             while(true)
             {
                 
                 readSerial = serialPort.readBytes();
-                
                 if (readSerial != null)
                 {
-                    System.out.println(readSerial.toString());
+                    count++;
+                    //System.out.println(Arrays.toString(readSerial));
+                    System.out.println("Motion" + count);
+                    
                 }
-                readSerial = null;
+               
             }
         }
         catch (SerialPortException ex){
