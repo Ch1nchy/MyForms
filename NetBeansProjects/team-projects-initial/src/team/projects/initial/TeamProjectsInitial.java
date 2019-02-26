@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package team.projects.initial;
 import jssc.SerialPort;
 import jssc.SerialPortException;
 /**
  *
- * @author pi
+ * @author Ian & Carl
  */
 public class TeamProjectsInitial {
 
-    /**
-     * @param args the command line arguments
-     */
+    static boolean active = false;
+
     public static void main(String[] args) {
         
         SerialPort serialPort = new SerialPort("/dev/ttyS0");
@@ -23,9 +17,14 @@ public class TeamProjectsInitial {
             System.out.println("Params setted: " + serialPort.setParams(9600, 8, 1, 0));
             System.out.println("\"Hello World!!!\" successfully writen to port: " + serialPort.writeBytes("Hello World!!!".getBytes()));
             System.out.println("Port closed: " + serialPort.closePort());
+            active = true;
         }
         catch (SerialPortException ex){
             System.out.println(ex);
         }   
+        
+        if (active) {
+            System.out.println("Hello world(again)");
+        }
     }
 }
