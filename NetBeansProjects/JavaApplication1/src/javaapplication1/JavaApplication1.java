@@ -23,6 +23,7 @@ public class JavaApplication1 {
         
         System.out.println(x + " add " + y + " equals " + total);
         System.out.println("This is frustrating");
+        
+        System.out.println("I think I've finally cracked it");
     }
-    
 }
