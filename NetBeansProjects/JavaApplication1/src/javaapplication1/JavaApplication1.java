@@ -22,6 +22,7 @@ public class JavaApplication1 {
         int total = x + y;
         
         System.out.println(x + " add " + y + " equals " + total);
+        System.out.println("This is frustrating");
     }
     
 }
