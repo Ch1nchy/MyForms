@@ -16,6 +16,12 @@ public class JavaApplication1 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        int x  = 3;
+        int y = 2;
+        int total = x + y;
+        
+        System.out.println(x + " add " + y + " equals " + total);
     }
     
 }
