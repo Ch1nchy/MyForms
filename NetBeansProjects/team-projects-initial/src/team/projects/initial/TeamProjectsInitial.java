@@ -24,7 +24,7 @@ public class TeamProjectsInitial {
         }   
         
         if (active) {
-            System.out.println("Hello world(again)");
+            System.out.println("Waiting...");
         }
     }
 }
