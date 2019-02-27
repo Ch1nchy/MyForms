@@ -28,7 +28,8 @@ public class TeamProjectsInitial {
             
             //https://github.com/Hopding/JRPiCam/blob/master/README.md
             //The above is the API for the Raspberry Pi camera
-            //Installation instructions are listed in the README
+            //Installation instructions are listed in the README and will need to
+            //build the .jar file used to take photos from the Raspberry Pi
         }
     }
 }
