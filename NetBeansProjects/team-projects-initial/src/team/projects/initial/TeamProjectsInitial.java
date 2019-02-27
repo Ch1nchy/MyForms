@@ -25,6 +25,10 @@ public class TeamProjectsInitial {
         
         if (active) {
             System.out.println("Waiting for something to do...");
+            
+            //https://github.com/Hopding/JRPiCam/blob/master/README.md
+            //The above is the API for the Raspberry Pi camera
+            //Installation instructions are listed in the README
         }
     }
 }
