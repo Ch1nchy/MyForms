@@ -24,7 +24,7 @@ public class TeamProjectsInitial {
         }   
         
         if (active) {
-            System.out.println("Waiting...");
+            System.out.println("Waiting for something to do...");
         }
     }
 }
