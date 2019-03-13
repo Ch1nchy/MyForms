@@ -1,7 +1,9 @@
 package team.projects.initial;
-import java.util.*;
+
+import com.hopding.jrpicam.RPiCamera;
 import jssc.SerialPort;
 import jssc.SerialPortException;
+
 /**
  *
  * @author Ian & Carl
@@ -12,13 +14,14 @@ public class TeamProjectsInitial {
 
     public static void main(String[] args) {
         
+        /*
         SerialPort serialPort = new SerialPort("/dev/ttyACM1");
         try {
             /*System.out.println("Port opened: " + serialPort.openPort());
             System.out.println("Params setted: " + serialPort.setParams(9600, 8, 1, 0));
             System.out.println("\"Hello World!!!\" successfully writen to port: " + serialPort.writeBytes("Hello World!!!".getBytes()));
             System.out.println("Port closed: " + serialPort.closePort());
-            active = true;*/
+            active = true;
             byte[] readSerial;
             
             serialPort.openPort();
@@ -48,6 +51,14 @@ public class TeamProjectsInitial {
             //The above is the API for the Raspberry Pi camera
             //Installation instructions are listed in the README and will need to
             //build the .jar file used to take photos from the Raspberry Pi
-        }
+        }*/   
+        
+        
+        ShootStill shoot = new ShootStill();
+        
+        shoot.shootStill(RPiCamera piCamera);
+        
     }
 }
+
+
