@@ -1,8 +1,10 @@
 package team.projects.initial;
 
 import com.hopding.jrpicam.RPiCamera;
+import com.hopding.jrpicam.exceptions.FailedToRunRaspistillException;
 import jssc.SerialPort;
 import jssc.SerialPortException;
+import static team.projects.initial.ShootStill.shootStill;
 
 /**
  *
@@ -13,6 +15,15 @@ public class TeamProjectsInitial {
     static boolean active = false;
 
     public static void main(String[] args) {
+        
+        RPiCamera piCamera = null;
+		// Attempt to create an instance of RPiCamera, will fail if raspistill is not properly installed
+		try {
+			String saveDir = "/home/pi/Desktop";
+			piCamera = new RPiCamera(saveDir);
+		} catch (FailedToRunRaspistillException e) {
+			e.printStackTrace();
+		}
         
         /*
         SerialPort serialPort = new SerialPort("/dev/ttyACM1");
@@ -54,10 +65,9 @@ public class TeamProjectsInitial {
         }*/   
         
         
-        ShootStill shoot = new ShootStill();
-        
-        shoot.shootStill(RPiCamera piCamera);
-        
+        if (piCamera != null){
+            shootStill(piCamera);
+        }
     }
 }
 
