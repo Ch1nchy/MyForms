@@ -43,7 +43,7 @@ public class TeamProjectsInitial {
 			e.printStackTrace();
 		}
         
-        
+        //Encapsulate this in a loop to test whether the Arduino is connected via ACM0 or ACM1 
         SerialPort serialPort = new SerialPort("/dev/ttyACM0");
         try {
             System.out.println("Port opened: " + serialPort.openPort());
@@ -51,8 +51,10 @@ public class TeamProjectsInitial {
             int num  = 1;
             serialPort.writeInt(num);
             byte[] readSerial;
+            
+            serialPort.writeString("L");
 
-            while(true)
+            /*while(true)
             {
                 
                 readSerial = serialPort.readBytes();
@@ -69,10 +71,19 @@ public class TeamProjectsInitial {
                     }
                 }
                
-            }
+            }*/
         }
         catch (SerialPortException ex){
             System.out.println(ex);
         }  
+        
+        //The arduino needs the code below to activate Light/sound
+        try
+        {
+            serialPort.closePort();
+        }
+        catch(SerialPortException ex){
+            System.out.println(ex);
+        }
     }
 }

@@ -65,12 +65,10 @@ public class SendAttachmentInEmail {
         */
     
        
-       
+    //The try/Catch block below needs to be encapsulated in a foreach loop to iterate through each email address
+        
     try {
         
-        //The entirety of the code in 'try' can now be encapsulated in a 
-        //foreach loop, so the code can send to as many email addresses as 
-        //has been entered in by the user
         
         msg.setFrom(new InternetAddress("teamproject5cc518@gmail.com"));
         //The email address in the 'Recipients' can be replaced by the variable
