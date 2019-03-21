@@ -27,10 +27,10 @@ public class ShootStill {
 			.setTimeout(1000)		    // Wait 1 second to take the image
 			.turnOnPreview()            // Turn on image preview
 			.setEncoding(Encoding.JPG); // Change encoding of images to PNG
-		// Take a 650x650 still image and save it as "/home/pi/Desktop/A Cool Picture.png"
+		// Take a 650x650 still image and save it as "/home/pi/Pictures/A Cool Picture.jpg"
 		try {
-			File image = piCamera.takeStill("A Cool Picture 1920 x 1080.jpg",1920, 1080);
-			System.out.println("New PNG image saved to:\n\t" + image.getAbsolutePath());
+			File image = piCamera.takeStill("A Cool Picture.jpg",1920, 1080);
+			System.out.println("New JPG image saved to:\n\t" + image.getAbsolutePath());
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
