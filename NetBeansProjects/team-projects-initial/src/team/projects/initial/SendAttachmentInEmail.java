@@ -14,6 +14,9 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import java.util.*;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 /**
  *
  * @author Ian and Carl
@@ -39,8 +42,39 @@ public class SendAttachmentInEmail {
          });
       
        Message msg = new MimeMessage(session);
+       
+        /*
+        Everything that is commented out here is to enable multi-address sending
+
+        File emailAddress = new File(\\home\Pi\Documents\emailAddress.txt);
+        List<address> = new ArrayList<>();
+        BufferedReader reader = new BufferedReader(new FileReader(emailAddress));
+
+        String addressString;
+
+        While(addressString != NULL)
+        {
+            addressString = reader.readLine();
+            
+            if (addressString != NULL)
+            {
+                address.add(addressString);
+            }
+        }
+
+        */
+    
+       
+       
     try {
+        
+        //The entirety of the code in 'try' can now be encapsulated in a 
+        //foreach loop, so the code can send to as many email addresses as 
+        //has been entered in by the user
+        
         msg.setFrom(new InternetAddress("teamproject5cc518@gmail.com"));
+        //The email address in the 'Recipients' can be replaced by the variable
+        //set out in the for each loop
         msg.setRecipient(Message.RecipientType.TO, new InternetAddress("teamproject5cc518@gmail.com"));
         msg.setSubject("Motion Alert");
 
