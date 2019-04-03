@@ -30,9 +30,7 @@ import team.projects.initial.SendAttachmentInEmail;
  */
 public class TeamProjectsInitial {
 
-    static boolean active = false;
-
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
         RPiCamera piCamera = null;
 		// Attempt to create an instance of RPiCamera, will fail if raspistill is not properly installed
@@ -43,16 +41,15 @@ public class TeamProjectsInitial {
 			e.printStackTrace();
 		}
         
+        SendAttachmentInEmail sendEmail = new SendAttachmentInEmail();        
+        
         //Encapsulate this in a loop to test whether the Arduino is connected via ACM0 or ACM1 
-        SerialPort serialPort = new SerialPort("/dev/ttyACM0");
+        /*SerialPort serialPort = new SerialPort("/dev/ttyACM0");
         try {
             System.out.println("Port opened: " + serialPort.openPort());
             System.out.println("Params setted: " + serialPort.setParams(9600, 8, 1, 0));
-            int num  = 1;
-            serialPort.writeInt(num);
-            byte[] readSerial;
             
-            serialPort.writeString("L");
+            
 
             /*while(true)
             {
@@ -67,11 +64,11 @@ public class TeamProjectsInitial {
                         SendAttachmentInEmail sendEmail = new SendAttachmentInEmail();
                         
                         
-                        serialPort.writeInt(num);
+                        serialPort.writeString("L");
                     }
                 }
                
-            }*/
+            }
         }
         catch (SerialPortException ex){
             System.out.println(ex);
@@ -84,6 +81,6 @@ public class TeamProjectsInitial {
         }
         catch(SerialPortException ex){
             System.out.println(ex);
-        }
+        }*/
     }
 }

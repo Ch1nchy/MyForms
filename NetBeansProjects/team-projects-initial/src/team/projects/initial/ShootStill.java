@@ -31,10 +31,7 @@ public class ShootStill {
 		try {
 			File image = piCamera.takeStill("A Cool Picture.jpg",1920, 1080);
 			System.out.println("New JPG image saved to:\n\t" + image.getAbsolutePath());
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
+		} catch (IOException | InterruptedException e) {
 		}
 	}
 	
