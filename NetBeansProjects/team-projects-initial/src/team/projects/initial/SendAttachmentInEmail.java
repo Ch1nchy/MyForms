@@ -38,7 +38,7 @@ public class SendAttachmentInEmail {
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
 
-      // Get the Session object.
+        // Get the Session object.
         Session session;
         session = Session.getInstance(props,
                new javax.mail.Authenticator() {
@@ -83,6 +83,7 @@ public class SendAttachmentInEmail {
                 
                 attachmentBodyPart.setDataHandler(new DataHandler(source));
                 attachmentBodyPart.setFileName("A Cool Picture.jpg"); // ex : "test.pdf"
+                
                 multipart.addBodyPart(textBodyPart);  // add the text part
                 multipart.addBodyPart(attachmentBodyPart); // add the attachement part
                 msg.setContent(multipart);

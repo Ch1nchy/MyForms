@@ -78,8 +78,7 @@ public class TeamProjectsInitial {
         try
         {
             serialPort.closePort();
-        }
-        catch(SerialPortException ex){
+        } catch(SerialPortException ex){
             System.out.println(ex);
         }*/
     }
