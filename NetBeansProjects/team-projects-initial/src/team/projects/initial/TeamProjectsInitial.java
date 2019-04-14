@@ -32,14 +32,14 @@ public class TeamProjectsInitial {
 
     public static void main(String[] args) throws IOException {
         
-        RPiCamera piCamera = null;
+        /*RPiCamera piCamera = null;
 		// Attempt to create an instance of RPiCamera, will fail if raspistill is not properly installed
 		try {
 			String saveDir = "/home/pi/Pictures";
 			piCamera = new RPiCamera(saveDir);
 		} catch (FailedToRunRaspistillException e) {
 			e.printStackTrace();
-		}
+		}*/
         
         SendAttachmentInEmail sendEmail = new SendAttachmentInEmail();        
         

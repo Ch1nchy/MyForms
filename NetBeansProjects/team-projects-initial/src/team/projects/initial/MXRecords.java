@@ -6,15 +6,17 @@ import javax.naming.directory.Attributes;
 import javax.naming.directory.InitialDirContext;
 import javax.naming.NamingException;
 import java.util.Arrays;
-//import java.util.Comparator;
 
 /**
  *
  * @author pi
  */
 public class MXRecords {
-        public static void main(String args[]) 
+    
+    public MXRecords(String args[]) 
     {
+        //args = new String[1];
+        //args[0] = "gmail.com";
         // explain what program does and how to use it 
         if (args.length != 1)
         {
@@ -27,7 +29,7 @@ public class MXRecords {
         {   // print the sorted mail exhchange servers
             for (String mailHost: lookupMailHosts(args[0]))
             {
-                System.out.println(mailHost);            
+                //System.out.println(mailHost);            
             }
         }
         catch (NamingException e)
@@ -39,7 +41,7 @@ public class MXRecords {
 
     // returns a String array of mail exchange servers (mail hosts) 
     //     sorted from most preferred to least preferred
-    static String[] lookupMailHosts(String domainName) throws NamingException
+    public String[] lookupMailHosts(String domainName) throws NamingException
     {
         // see: RFC 974 - Mail routing and the domain system
         // see: RFC 1034 - Domain names - concepts and facilities
