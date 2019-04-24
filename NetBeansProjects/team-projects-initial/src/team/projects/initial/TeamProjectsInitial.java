@@ -13,6 +13,9 @@ import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.NamingException;
 import javax.script.ScriptContext;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -30,22 +33,23 @@ import team.projects.initial.SendAttachmentInEmail;
  */
 public class TeamProjectsInitial {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, FileNotFoundException {
         
-        /*RPiCamera piCamera = null;
-		// Attempt to create an instance of RPiCamera, will fail if raspistill is not properly installed
-		try {
-			String saveDir = "/home/pi/Pictures";
-			piCamera = new RPiCamera(saveDir);
-		} catch (FailedToRunRaspistillException e) {
-			e.printStackTrace();
-		}*/
-        
-        SendAttachmentInEmail sendEmail = new SendAttachmentInEmail();        
-        
-        //Encapsulate this in a loop to test whether the Arduino is connected via ACM0 or ACM1 
-        /*SerialPort serialPort = new SerialPort("/dev/ttyACM0");
         try {
+            /*RPiCamera piCamera = null;
+            // Attempt to create an instance of RPiCamera, will fail if raspistill is not properly installed
+            try {
+            String saveDir = "/home/pi/Pictures";
+            piCamera = new RPiCamera(saveDir);
+            } catch (FailedToRunRaspistillException e) {
+            e.printStackTrace();
+            }*/
+            
+            SendAttachmentInEmail sendEmail = new SendAttachmentInEmail();
+            
+            //Encapsulate this in a loop to test whether the Arduino is connected via ACM0 or ACM1
+            /*SerialPort serialPort = new SerialPort("/dev/ttyACM0");
+            try {
             System.out.println("Port opened: " + serialPort.openPort());
             System.out.println("Params setted: " + serialPort.setParams(9600, 8, 1, 0));
             
@@ -53,33 +57,36 @@ public class TeamProjectsInitial {
 
             /*while(true)
             {
-                
-                readSerial = serialPort.readBytes();
-                if (readSerial != null)
-                {
-                    
-                    if (piCamera != null){
-                        shootStill(piCamera);
-                        
-                        SendAttachmentInEmail sendEmail = new SendAttachmentInEmail();
-                        
-                        
-                        serialPort.writeString("L");
-                    }
-                }
-               
+            
+            readSerial = serialPort.readBytes();
+            if (readSerial != null)
+            {
+            
+            if (piCamera != null){
+            shootStill(piCamera);
+            
+            SendAttachmentInEmail sendEmail = new SendAttachmentInEmail();
+            
+            
+            serialPort.writeString("L");
             }
-        }
-        catch (SerialPortException ex){
+            }
+            
+            }
+            }
+            catch (SerialPortException ex){
             System.out.println(ex);
-        }  
-        
-        //The arduino needs the code below to activate Light/sound
-        try
-        {
+            }
+            
+            //The arduino needs the code below to activate Light/sound
+            try
+            {
             serialPort.closePort();
-        } catch(SerialPortException ex){
+            } catch(SerialPortException ex){
             System.out.println(ex);
-        }*/
+            }*/
+        } catch (NamingException ex) {
+            Logger.getLogger(TeamProjectsInitial.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
